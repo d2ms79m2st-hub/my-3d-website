@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A futuristic 3D landing page showcasing immersive design and motion."
+    />
+    <title>NovaForge</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <div class="brand">
+          <span class="brand-mark">N</span>
+          <span>NovaForge</span>
+        </div>
+        <nav class="nav" aria-label="Main navigation">
+          <a href="#about">About</a>
+          <a href="#solutions">Solutions</a>
+          <a href="#pricing">Pricing</a>
+        </nav>
+        <button class="nav-cta">Book a demo</button>
+      </header>
+
+      <main class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Next-generation product design</p>
+          <h1>Build experiences that feel alive.</h1>
+          <p class="lede">
+            We craft lightning-fast digital products with immersive visuals,
+            precision UX, and strategy that turns attention into action.
+          </p>
+          <div class="cta-row">
+            <button class="primary">Get started</button>
+            <button class="secondary">View case study</button>
+          </div>
+          <div class="stats" aria-label="Key results">
+            <div>
+              <strong>120+</strong>
+              <span>Launches</span>
+            </div>
+            <div>
+              <strong>4.9/5</strong>
+              <span>Client rating</span>
+            </div>
+            <div>
+              <strong>3x</strong>
+              <span>Faster delivery</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="visual-panel" aria-label="3D product visualization">
+          <canvas id="scene"></canvas>
+          <div class="floating-card card-a">
+            <span class="card-label">Realtime</span>
+            <strong>12ms</strong>
+            <small>Global latency</small>
+          </div>
+          <div class="floating-card card-b">
+            <span class="card-label">Engagement</span>
+            <strong>87%</strong>
+            <small>Retention lift</small>
+          </div>
+        </div>
+      </main>
+
+      <section class="feature-grid" id="about">
+        <article>
+          <span class="feature-icon">01</span>
+          <h2>Immersive strategy</h2>
+          <p>We blend product thinking, motion direction, and development to create memorable digital experiences.</p>
+        </article>
+        <article>
+          <span class="feature-icon">02</span>
+          <h2>Rapid execution</h2>
+          <p>From concept to launch, every sprint is structured to increase clarity, performance, and momentum.</p>
+        </article>
+        <article>
+          <span class="feature-icon">03</span>
+          <h2>Measured growth</h2>
+          <p>We optimize for engagement and conversion, not just aesthetics, ensuring your product performs in the real world.</p>
+        </article>
+      </section>
+    </div>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>

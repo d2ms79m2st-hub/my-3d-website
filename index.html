@@ -1,163 +1,54 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="A futuristic 3D landing page showcasing immersive design and motion."
-    />
-    <title>NovaForge</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="./styles.css" />
-  </head>
-  <body>
-    <div class="page-shell">
-      <header class="topbar">
-        <div class="brand">
-          <span class="brand-mark">N</span>
-          <span>NovaForge</span>
-        </div>
-        <nav class="nav" aria-label="Main navigation">
-          <a href="#about">About</a>
-          <a href="#solutions">Solutions</a>
-          <a href="#pricing">Pricing</a>
-        </nav>
-        <button class="nav-cta" type="button">Book a demo</button>
-      </header>
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="بدر أبا الخيل للعود والعطور والمبخرات والمعطرات">
+  <title>بدر أبا الخيل | للعود والعطور</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--black:#080a08;--dark:#101510;--green:#14271d;--gold:#c9a45b;--gold-light:#e3c982;--white:#fff;--muted:#a9aaa3;--border:rgba(201,164,91,.25)}
+    *{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{background:var(--black);color:var(--white);font-family:Cairo,sans-serif;overflow-x:hidden}a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer}
+    .navbar{position:fixed;inset:0 0 auto;height:78px;z-index:10;display:flex;align-items:center;justify-content:space-between;padding:0 7%;background:rgba(8,10,8,.85);backdrop-filter:blur(18px);border-bottom:1px solid rgba(255,255,255,.07)}
+    .brand{display:flex;flex-direction:column;line-height:1.2}.brand-name{color:var(--gold-light);font-size:20px;font-weight:800}.brand-subtitle{color:#85877f;font-size:10px;letter-spacing:2px}.nav-links{display:flex;gap:30px;color:#d6d6d1;font-size:14px}.nav-links a:hover{color:var(--gold-light)}
+    .cart-button,.add-button{border:1px solid var(--border);background:transparent;color:var(--gold-light);border-radius:30px;padding:10px 18px}.cart-button:hover,.add-button:hover{background:var(--gold);color:#111}
+    .hero{min-height:100vh;display:flex;align-items:center;position:relative;padding:140px 8% 90px;overflow:hidden;background:radial-gradient(circle at 20% 50%,rgba(29,70,48,.4),transparent 35%),radial-gradient(circle at 75% 30%,rgba(201,164,91,.12),transparent 30%),linear-gradient(135deg,#080a08,#101510)}.hero-content{position:relative;z-index:2;max-width:650px}.hero-badge,.eyebrow{color:var(--gold-light);font-size:12px;letter-spacing:2px}.hero-badge{display:inline-block;border:1px solid rgba(201,164,91,.4);border-radius:50px;padding:8px 18px;margin-bottom:25px;letter-spacing:0}.hero h1{font-size:clamp(50px,7vw,92px);line-height:1.05;font-weight:800;margin-bottom:25px}.hero h1 span{color:var(--gold-light)}.hero-description{color:var(--muted);font-size:17px;line-height:2;max-width:570px;margin-bottom:35px}.hero-buttons{display:flex;flex-wrap:wrap;gap:14px}.button{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 28px;border-radius:4px;font-weight:700;border:1px solid transparent}.button-primary{background:var(--gold);color:#111}.button-primary:hover{background:var(--gold-light);transform:translateY(-2px)}.button-secondary{background:transparent;color:#fff;border-color:rgba(255,255,255,.22)}.button-secondary:hover{border-color:var(--gold);color:var(--gold-light)}
+    .hero-product{position:absolute;left:8%;top:50%;transform:translateY(-50%);width:420px;height:560px;display:flex;align-items:center;justify-content:center}.hero-glow{position:absolute;width:380px;height:380px;border-radius:50%;background:rgba(201,164,91,.1);filter:blur(45px)}.hero-bottle{position:relative;z-index:1;width:220px;height:360px;border-radius:22px 22px 35px 35px;background:linear-gradient(90deg,#0d0e0c,#28251c,#4b4029,#171711,#080907);border:1px solid rgba(201,164,91,.65);box-shadow:0 45px 100px #000,inset 0 0 35px rgba(201,164,91,.1);display:flex;align-items:center;justify-content:center;animation:floating 5s ease-in-out infinite}.hero-bottle:before{content:"";position:absolute;top:-58px;width:88px;height:68px;border-radius:8px 8px 3px 3px;background:linear-gradient(90deg,#171612,#b99a55,#ead080,#5c4a27,#15140f)}.bottle-label{width:155px;height:200px;border:1px solid rgba(201,164,91,.65);display:flex;flex-direction:column;align-items:center;justify-content:center}.bottle-label strong{color:var(--gold-light);font-size:30px}.bottle-label span{color:#ddd;font-size:12px;margin-top:8px}@keyframes floating{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+    .section{padding:100px 7%}.section-heading{text-align:center;max-width:650px;margin:0 auto 45px}.section-heading h2{font-size:42px;line-height:1.3;margin:10px 0}.section-heading p,.about-text{color:var(--muted);line-height:1.9}.categories,.products{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.category-card{min-height:220px;padding:28px;display:flex;flex-direction:column;justify-content:flex-end;background:linear-gradient(145deg,#17271e,#0b100d);border:1px solid rgba(255,255,255,.08);transition:.3s}.category-card:hover,.product-card:hover{transform:translateY(-7px);border-color:rgba(201,164,91,.5)}.category-number{color:rgba(201,164,91,.4);margin-bottom:auto}.category-card h3{font-size:24px}.category-card p,.product-info p{color:#8f918b;font-size:13px}.product-card{overflow:hidden;background:#10130f;border:1px solid rgba(255,255,255,.08);transition:.3s}.product-image{height:260px;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle,rgba(201,164,91,.13),transparent 55%),#0c0f0c}.product-bottle{width:115px;height:195px;border-radius:13px 13px 20px 20px;background:linear-gradient(90deg,#0c0d0c,#29261d,#51432a,#13130e);border:1px solid rgba(201,164,91,.6);box-shadow:0 25px 50px #000;position:relative}.product-bottle:before{content:"";position:absolute;top:-30px;left:29px;width:55px;height:36px;background:linear-gradient(90deg,#554321,#d0ad60,#584521);border-radius:5px}.product-info{padding:20px}.product-info h3{font-size:19px;margin-bottom:6px}.product-info p{line-height:1.8;min-height:47px;margin-bottom:14px}.product-bottom{display:flex;align-items:center;justify-content:space-between;gap:8px}.price{color:var(--gold-light);font-size:19px;font-weight:800;white-space:nowrap}.add-button{background:var(--gold);color:#111;border:0;border-radius:3px;padding:9px 13px;font-weight:700}
+    .offer{margin:20px 7%;padding:70px 25px;text-align:center;background:radial-gradient(circle at 50% 0,rgba(201,164,91,.1),transparent 40%),linear-gradient(110deg,#142c20,#0b0f0c);border:1px solid var(--border)}.offer h2{color:var(--gold-light);font-size:42px;margin:10px 0}.offer p{color:#aaa;margin-bottom:25px}.about{max-width:850px;margin:auto;text-align:center}.about-text{font-size:16px;line-height:2.2}.footer{padding:70px 7% 25px;background:#060806;border-top:1px solid rgba(255,255,255,.06)}.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:50px;margin-bottom:50px}.footer h3{color:var(--gold-light);margin-bottom:15px}.footer p,.footer a{color:#858780;font-size:14px;line-height:2}.footer a{display:block}.copyright{text-align:center;padding-top:22px;border-top:1px solid rgba(255,255,255,.06);color:#62645f;font-size:12px}
+    .cart-overlay{position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:20;opacity:0;visibility:hidden;transition:.3s}.cart-overlay.active{opacity:1;visibility:visible}.cart-panel{position:fixed;top:0;right:-430px;width:410px;max-width:92%;height:100vh;z-index:21;background:#10130f;border-left:1px solid var(--border);padding:30px;transition:.4s;overflow-y:auto}.cart-panel.active{right:0}.cart-header,.cart-total{display:flex;align-items:center;justify-content:space-between}.cart-header{margin-bottom:30px}.cart-header h2,.cart-total strong{color:var(--gold-light)}.close-cart{border:0;background:transparent;color:#fff;font-size:30px}.empty-cart{text-align:center;color:#888;padding:70px 0}.cart-item{display:flex;align-items:center;justify-content:space-between;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.07)}.cart-item-price{color:var(--gold-light);font-size:13px}.remove-item{border:0;background:transparent;color:#c48b70}.cart-total{margin-top:30px;font-size:19px}.checkout-button{width:100%;margin-top:25px}
+    @media(max-width:1000px){.hero-product{opacity:.3;left:-60px}.categories,.products{grid-template-columns:repeat(2,1fr)}}@media(max-width:700px){.navbar{height:70px;padding:0 5%}.nav-links{display:none}.hero{padding:125px 6% 80px}.hero-product{display:none}.hero h1{font-size:52px}.section{padding:75px 5%}.section-heading h2{font-size:32px}.categories,.products{grid-template-columns:1fr}.offer{margin:20px 5%;padding:50px 20px}.offer h2{font-size:30px}.footer-grid{grid-template-columns:1fr;gap:30px}}
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <a href="#" class="brand"><span class="brand-name">بدر أبا الخيل</span><span class="brand-subtitle">للعود والعطور</span></a>
+    <div class="nav-links"><a href="#products">المنتجات</a><a href="#categories">الأقسام</a><a href="#offers">العروض</a><a href="#about">عن المتجر</a></div>
+    <button class="cart-button" type="button" onclick="openCart()">السلة <span id="cartCount">0</span></button>
+  </nav>
 
-      <main class="hero">
-        <div class="hero-copy">
-          <p class="eyebrow">Next-generation product design</p>
-          <h1>Build experiences that feel alive.</h1>
-          <p class="lede">
-            We craft lightning-fast digital products with immersive visuals,
-            precision UX, and strategy that turns attention into action.
-          </p>
-          <div class="cta-row">
-            <button class="primary" type="button">Get started</button>
-            <button class="secondary" type="button">View case study</button>
-          </div>
-          <div class="stats" aria-label="Key results">
-            <div>
-              <strong>120+</strong>
-              <span>Launches</span>
-            </div>
-            <div>
-              <strong>4.9/5</strong>
-              <span>Client rating</span>
-            </div>
-            <div>
-              <strong>3x</strong>
-              <span>Faster delivery</span>
-            </div>
-          </div>
-        </div>
+  <header class="hero"><div class="hero-content"><div class="hero-badge">فخامة تُشم ولا تُوصف</div><h1>عود يليق<br><span>بالمقام.</span></h1><p class="hero-description">اكتشف تشكيلة مختارة من العود والعطور والمبخرات والمعطرات، بتفاصيل تجمع الأصالة والفخامة بأسلوب عصري يليق بك.</p><div class="hero-buttons"><a href="#products" class="button button-primary">تسوق الآن</a><a href="#categories" class="button button-secondary">استكشف التشكيلة</a></div></div><div class="hero-product"><div class="hero-glow"></div><div class="hero-bottle"><div class="bottle-label"><strong>نجد</strong><span>عود فاخر</span></div></div></div></header>
 
-        <div class="visual-panel" aria-label="3D product visualization">
-          <canvas id="scene"></canvas>
-          <div class="floating-card card-a">
-            <span class="card-label">Realtime</span>
-            <strong>12ms</strong>
-            <small>Global latency</small>
-          </div>
-          <div class="floating-card card-b">
-            <span class="card-label">Engagement</span>
-            <strong>87%</strong>
-            <small>Retention lift</small>
-          </div>
-        </div>
-      </main>
+  <section class="section" id="categories"><div class="section-heading"><div class="eyebrow">اكتشف مجموعتنا</div><h2>تشكيلة مختارة بعناية</h2><p>كل ما تحتاجه لتجعل حضورك مختلفاً.</p></div><div class="categories"><a href="#products" class="category-card"><span class="category-number">01</span><h3>العود</h3><p>أجود الروائح الشرقية</p></a><a href="#products" class="category-card"><span class="category-number">02</span><h3>العطور</h3><p>روائح تدوم وتترك أثراً</p></a><a href="#products" class="category-card"><span class="category-number">03</span><h3>المبخرات</h3><p>فخامة المكان تبدأ من هنا</p></a><a href="#products" class="category-card"><span class="category-number">04</span><h3>المعطرات</h3><p>لمسة عطرية لكل يوم</p></a></div></section>
 
-      <section class="feature-grid" id="about">
-        <article>
-          <span class="feature-icon">01</span>
-          <h2>Immersive strategy</h2>
-          <p>We blend product thinking, motion direction, and development to create memorable digital experiences.</p>
-        </article>
-        <article>
-          <span class="feature-icon">02</span>
-          <h2>Rapid execution</h2>
-          <p>From concept to launch, every sprint is structured to increase clarity, performance, and momentum.</p>
-        </article>
-        <article>
-          <span class="feature-icon">03</span>
-          <h2>Measured growth</h2>
-          <p>We optimize for engagement and conversion, not just aesthetics, ensuring your product performs in the real world.</p>
-        </article>
-      </section>
+  <section class="section" id="products"><div class="section-heading"><div class="eyebrow">الأكثر طلباً</div><h2>منتجاتنا</h2><p>اختيارات مميزة لعشاق العود والعطور.</p></div><div class="products" id="productGrid"></div></section>
+  <section class="offer" id="offers"><div class="eyebrow">عرض خاص</div><h2>خذ الأول بـ 150 والثاني بـ 96 ر.س</h2><p>اختر عطرك المفضل واستفد من العرض.</p><a href="#products" class="button button-primary">استفد من العرض</a></section>
+  <section class="section" id="about"><div class="about"><div class="section-heading"><div class="eyebrow">بدر أبا الخيل</div><h2>العطر جزء من حضورك</h2></div><p class="about-text">نقدم منتجات عطرية مختارة بعناية لمن يبحث عن الجودة والفخامة والتفاصيل التي تبقى في الذاكرة. عود وعطور ومبخرات ومعطرات بروح شرقية ولمسة عصرية.</p></div></section>
+  <footer class="footer"><div class="footer-grid"><div><h3>بدر أبا الخيل</h3><p>للعود والعطور والمبخرات والمعطرات. فخامة شرقية بروح عصرية.</p></div><div><h3>روابط</h3><a href="#products">المنتجات</a><a href="#categories">الأقسام</a><a href="#offers">العروض</a><a href="#about">عن المتجر</a></div><div><h3>تواصل</h3><a href="https://wa.me/966500000000" target="_blank" rel="noopener">واتساب</a><a href="#">إنستغرام</a><a href="#">سناب شات</a></div></div><div class="copyright">© 2026 بدر أبا الخيل للعود والعطور — جميع الحقوق محفوظة</div></footer>
 
-      <section class="solutions" id="solutions">
-        <div class="section-heading">
-          <p class="eyebrow">Solutions</p>
-          <h2>Built for ambitious teams.</h2>
-        </div>
-
-        <div class="solution-grid">
-          <article class="solution-card">
-            <h3>Brand systems</h3>
-            <p>Establish a clear visual language and interaction framework that scales across all touchpoints.</p>
-          </article>
-          <article class="solution-card">
-            <h3>Product design</h3>
-            <p>Design interfaces that are more intuitive, more persuasive, and easier to turn into real value.</p>
-          </article>
-          <article class="solution-card">
-            <h3>Growth sprints</h3>
-            <p>Pair product experimentation with measurable goals to compound momentum across the funnel.</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="pricing" id="pricing">
-        <div class="section-heading">
-          <p class="eyebrow">Pricing</p>
-          <h2>Flexible engagement models.</h2>
-        </div>
-
-        <div class="pricing-grid">
-          <article class="pricing-card">
-            <span class="plan-name">Starter</span>
-            <h3>$1.5k<span>/mo</span></h3>
-            <ul>
-              <li>Design direction</li>
-              <li>Landing page design</li>
-              <li>Monthly strategy review</li>
-            </ul>
-            <button class="secondary" type="button">Choose plan</button>
-          </article>
-
-          <article class="pricing-card featured">
-            <span class="plan-name">Growth</span>
-            <h3>$4.8k<span>/mo</span></h3>
-            <ul>
-              <li>Full product design</li>
-              <li>Rapid prototyping</li>
-              <li>Cross-functional sprint planning</li>
-            </ul>
-            <button class="primary" type="button">Most popular</button>
-          </article>
-
-          <article class="pricing-card">
-            <span class="plan-name">Scale</span>
-            <h3>$9k<span>/mo</span></h3>
-            <ul>
-              <li>Dedicated team support</li>
-              <li>Experimentation roadmap</li>
-              <li>Executive reporting</li>
-            </ul>
-            <button class="secondary" type="button">Talk to sales</button>
-          </article>
-        </div>
-      </section>
-    </div>
-
-    <script type="module" src="./app.js"></script>
-  </body>
+  <div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div><aside class="cart-panel" id="cartPanel"><div class="cart-header"><h2>سلة المشتريات</h2><button class="close-cart" type="button" onclick="closeCart()">×</button></div><div id="cartItems"><div class="empty-cart">السلة فارغة.</div></div><div class="cart-total"><span>الإجمالي</span><strong><span id="cartTotal">0</span> ر.س</strong></div><button class="button button-primary checkout-button" type="button" onclick="checkout()">إتمام الطلب عبر واتساب</button></aside>
+  <script>
+    const products=[['عطر نجد','عطر فاخر مستوحى من عبق نجد.',150],['عود تايقر','نفحات عودية عميقة وفاخرة.',150],['بلاك تي','معطر أنيق بلمسة فاخرة.',120],['باشن','رائحة مميزة للحظاتك الخاصة.',120]];
+    let cart=[];
+    document.getElementById('productGrid').innerHTML=products.map(([name,description,price])=>`<article class="product-card"><div class="product-image"><div class="product-bottle"></div></div><div class="product-info"><h3>${name}</h3><p>${description}</p><div class="product-bottom"><span class="price">${price} ر.س</span><button class="add-button" type="button" onclick="addToCart('${name}',${price})">أضف للسلة</button></div></div></article>`).join('');
+    function openCart(){document.getElementById('cartPanel').classList.add('active');document.getElementById('cartOverlay').classList.add('active')}
+    function closeCart(){document.getElementById('cartPanel').classList.remove('active');document.getElementById('cartOverlay').classList.remove('active')}
+    function addToCart(name,price){cart.push({name,price});updateCart();openCart()}
+    function removeItem(index){cart.splice(index,1);updateCart()}
+    function updateCart(){document.getElementById('cartCount').textContent=cart.length;const container=document.getElementById('cartItems');const total=cart.reduce((sum,item)=>sum+item.price,0);document.getElementById('cartTotal').textContent=total;container.innerHTML=cart.length?cart.map((item,index)=>`<div class="cart-item"><div><strong>${item.name}</strong><div class="cart-item-price">${item.price} ر.س</div></div><button class="remove-item" type="button" onclick="removeItem(${index})">حذف</button></div>`).join(''):'<div class="empty-cart">السلة فارغة.</div>'}
+    function checkout(){if(!cart.length){alert('السلة فارغة.');return}const phone='966500000000';const lines=cart.map(item=>`- ${item.name} — ${item.price} ر.س`).join('\n');const total=cart.reduce((sum,item)=>sum+item.price,0);const message=`السلام عليكم، أريد طلب المنتجات التالية:\n\n${lines}\n\nالإجمالي: ${total} ر.س`;window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`,'_blank','noopener')}
+  </script>
+</body>
 </html>
-

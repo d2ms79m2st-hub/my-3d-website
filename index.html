@@ -1,965 +1,1311 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>بدر أبا الخيل | للعود والعطور</title>
-
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap');
-
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
-
-:root{
-  --black:#090a08;
-  --dark:#10140f;
-  --green:#12231a;
-  --green2:#193326;
-  --gold:#c8a45b;
-  --gold2:#e1c47d;
-  --cream:#f4efe5;
-  --muted:#aaa99f;
-}
-
-body{
-  background:var(--black);
-  color:#fff;
-  font-family:Cairo, sans-serif;
-  overflow-x:hidden;
-}
-
-a{
-  color:inherit;
-  text-decoration:none;
-}
-
-button{
-  font-family:inherit;
-}
-
-/* NAV */
-
-nav{
-  position:fixed;
-  top:0;
-  width:100%;
-  height:82px;
-  z-index:100;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:0 6%;
-  background:rgba(9,10,8,.72);
-  backdrop-filter:blur(18px);
-  border-bottom:1px solid rgba(200,164,91,.12);
-}
-
-.logo{
-  font-size:20px;
-  font-weight:800;
-  color:var(--gold2);
-  letter-spacing:.3px;
-}
-
-.logo span{
-  display:block;
-  font-size:11px;
-  color:#aaa;
-  font-weight:400;
-  letter-spacing:2px;
-  margin-top:-3px;
-}
-
-.navlinks{
-  display:flex;
-  gap:32px;
-  font-size:14px;
-  color:#ddd;
-}
-
-.navlinks a{
-  transition:.3s;
-}
-
-.navlinks a:hover{
-  color:var(--gold2);
-}
-
-.cart{
-  border:1px solid rgba(200,164,91,.45);
-  padding:10px 18px;
-  border-radius:30px;
-  color:var(--gold2);
-  cursor:pointer;
-  background:transparent;
-}
-
-/* HERO */
-
-.hero{
-  min-height:100vh;
-  position:relative;
-  display:flex;
-  align-items:center;
-  padding:130px 8% 80px;
-  overflow:hidden;
-  background:
-    radial-gradient(circle at 20% 50%,rgba(24,61,43,.35),transparent 35%),
-    radial-gradient(circle at 80% 30%,rgba(200,164,91,.08),transparent 30%);
-}
-
-.hero:before{
-  content:"";
-  position:absolute;
-  width:600px;
-  height:600px;
-  border:1px solid rgba(200,164,91,.12);
-  border-radius:50%;
-  left:-220px;
-  top:20%;
-}
-
-.hero-content{
-  max-width:650px;
-  position:relative;
-  z-index:2;
-}
-
-.badge{
-  display:inline-block;
-  border:1px solid rgba(200,164,91,.4);
-  color:var(--gold2);
-  padding:8px 18px;
-  border-radius:30px;
-  font-size:12px;
-  margin-bottom:25px;
-}
-
-h1{
-  font-size:clamp(48px,7vw,92px);
-  line-height:1.05;
-  font-weight:800;
-  margin-bottom:25px;
-}
-
-h1 span{
-  color:var(--gold2);
-}
-
-.hero p{
-  color:#b9b9b0;
-  font-size:17px;
-  line-height:2;
-  max-width:570px;
-  margin-bottom:35px;
-}
-
-.buttons{
-  display:flex;
-  gap:14px;
-  flex-wrap:wrap;
-}
-
-.btn{
-  padding:15px 30px;
-  border-radius:4px;
-  font-weight:700;
-  cursor:pointer;
-  border:none;
-  transition:.3s;
-}
-
-.primary{
-  background:var(--gold);
-  color:#111;
-}
-
-.primary:hover{
-  background:var(--gold2);
-  transform:translateY(-3px);
-}
-
-.secondary{
-  background:transparent;
-  color:#fff;
-  border:1px solid rgba(255,255,255,.25);
-}
-
-.secondary:hover{
-  border-color:var(--gold);
-  color:var(--gold2);
-}
-
-/* HERO PRODUCT */
-
-.hero-product{
-  position:absolute;
-  left:8%;
-  top:50%;
-  transform:translateY(-50%);
-  width:390px;
-  height:520px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-
-.glow{
-  position:absolute;
-  width:350px;
-  height:350px;
-  border-radius:50%;
-  background:rgba(200,164,91,.08);
-  filter:blur(35px);
-}
-
-.bottle{
-  width:210px;
-  height:350px;
-  border-radius:20px 20px 35px 35px;
-  background:
-    linear-gradient(90deg,#10100e,#25231c,#0b0c0a);
-  border:1px solid rgba(200,164,91,.6);
-  box-shadow:
-    0 40px 100px rgba(0,0,0,.8),
-    inset 0 0 30px rgba(200,164,91,.08);
-  position:relative;
-  z-index:2;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-}
-
-.bottle:before{
-  content:"";
-  position:absolute;
-  top:-55px;
-  width:85px;
-  height:65px;
-  background:linear-gradient(90deg,#171612,#c1a15b,#191812);
-  border-radius:7px 7px 3px 3px;
-  border:1px solid rgba(200,164,91,.5);
-}
-
-.bottle-label{
-  width:150px;
-  height:190px;
-  border:1px solid rgba(200,164,91,.6);
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-}
-
-.bottle-label strong{
-  font-size:25px;
-  color:var(--gold2);
-}
-
-.bottle-label small{
-  color:#ddd;
-  margin-top:10px;
-}
-
-/* SECTION */
-
-section{
-  padding:110px 7%;
-}
-
-.section-head{
-  text-align:center;
-  margin-bottom:55px;
-}
-
-.eyebrow{
-  color:var(--gold2);
-  font-size:13px;
-  letter-spacing:3px;
-  margin-bottom:10px;
-}
-
-.section-head h2{
-  font-size:42px;
-  margin-bottom:12px;
-}
-
-.section-head p{
-  color:#999;
-}
-
-/* CATEGORIES */
-
-.categories{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:15px;
-}
-
-.category{
-  height:220px;
-  padding:30px;
-  background:linear-gradient(145deg,#17251d,#0c110e);
-  border:1px solid rgba(255,255,255,.07);
-  display:flex;
-  flex-direction:column;
-  justify-content:flex-end;
-  transition:.4s;
-  position:relative;
-  overflow:hidden;
-}
-
-.category:before{
-  content:"";
-  position:absolute;
-  width:140px;
-  height:140px;
-  border-radius:50%;
-  background:rgba(200,164,91,.08);
-  top:-60px;
-  left:-40px;
-}
-
-.category:hover{
-  transform:translateY(-8px);
-  border-color:rgba(200,164,91,.4);
-}
-
-.category h3{
-  font-size:23px;
-}
-
-.category p{
-  color:#999;
-  font-size:13px;
-}
-
-/* PRODUCTS */
-
-.products{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:20px;
-}
-
-.product{
-  background:#10130f;
-  border:1px solid rgba(255,255,255,.07);
-  overflow:hidden;
-  transition:.35s;
-}
-
-.product:hover{
-  transform:translateY(-7px);
-  border-color:rgba(200,164,91,.4);
-}
-
-.product-image{
-  height:300px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:
-    radial-gradient(circle,rgba(200,164,91,.11),transparent 55%),
-    #0c0e0c;
-}
-
-.product-image .mini-bottle{
-  width:115px;
-  height:200px;
-  border-radius:12px 12px 20px 20px;
-  background:linear-gradient(90deg,#111,#3b3526,#0b0b09);
-  border:1px solid rgba(200,164,91,.55);
-  position:relative;
-}
-
-.mini-bottle:before{
-  content:"";
-  position:absolute;
-  top:-28px;
-  left:30px;
-  width:55px;
-  height:35px;
-  background:#a88b4e;
-  border-radius:4px;
-}
-
-.product-info{
-  padding:22px;
-}
-
-.product-info h3{
-  font-size:19px;
-  margin-bottom:7px;
-}
-
-.product-info p{
-  color:#888;
-  font-size:13px;
-  margin-bottom:16px;
-}
-
-.price{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-
-.price strong{
-  color:var(--gold2);
-  font-size:20px;
-}
-
-.add{
-  background:var(--gold);
-  color:#111;
-  border:none;
-  padding:9px 15px;
-  border-radius:3px;
-  cursor:pointer;
-  font-weight:bold;
-}
-
-/* OFFER */
-
-.offer{
-  margin:30px 7%;
-  padding:70px;
-  background:
-    linear-gradient(110deg,rgba(20,47,33,.95),rgba(10,14,11,.95));
-  border:1px solid rgba(200,164,91,.25);
-  text-align:center;
-}
-
-.offer h2{
-  font-size:42px;
-  color:var(--gold2);
-}
-
-.offer p{
-  color:#bbb;
-  margin:15px 0 25px;
-}
-
-/* FOOTER */
-
-footer{
-  padding:70px 7% 30px;
-  background:#070806;
-  border-top:1px solid rgba(255,255,255,.07);
-}
-
-.footer-grid{
-  display:grid;
-  grid-template-columns:2fr 1fr 1fr;
-  gap:50px;
-  margin-bottom:60px;
-}
-
-footer h3{
-  color:var(--gold2);
-  margin-bottom:15px;
-}
-
-footer p,footer a{
-  color:#888;
-  line-height:2;
-  font-size:14px;
-  display:block;
-}
-
-.copy{
-  border-top:1px solid rgba(255,255,255,.07);
-  padding-top:25px;
-  color:#666;
-  text-align:center;
-  font-size:12px;
-}
-
-/* CART */
-
-.cart-panel{
-  position:fixed;
-  top:0;
-  right:-420px;
-  width:390px;
-  max-width:90%;
-  height:100vh;
-  background:#10130f;
-  z-index:300;
-  padding:30px;
-  border-left:1px solid rgba(200,164,91,.3);
-  transition:.4s;
-  box-shadow:-20px 0 60px rgba(0,0,0,.5);
-}
-
-.cart-panel.open{
-  right:0;
-}
-
-.close{
-  background:none;
-  border:none;
-  color:#fff;
-  font-size:28px;
-  cursor:pointer;
-  float:left;
-}
-
-.cart-panel h2{
-  margin-bottom:30px;
-  color:var(--gold2);
-}
-
-.cart-items{
-  min-height:200px;
-}
-
-.cart-item{
-  display:flex;
-  justify-content:space-between;
-  padding:15px 0;
-  border-bottom:1px solid rgba(255,255,255,.08);
-}
-
-.cart-total{
-  margin-top:30px;
-  font-size:20px;
-  display:flex;
-  justify-content:space-between;
-}
-
-.checkout{
-  width:100%;
-  margin-top:25px;
-}
-
-/* MOBILE */
-
-@media(max-width:900px){
-
-  .navlinks{
-    display:none;
-  }
-
-  .hero{
-    padding-top:130px;
-    min-height:auto;
-    padding-bottom:70px;
-  }
-
-  .hero-product{
-    display:none;
-  }
-
-  .hero-content{
-    max-width:none;
-  }
-
-  .categories,
-  .products{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .footer-grid{
-    grid-template-columns:1fr;
-  }
-}
-
-@media(max-width:550px){
-
-  nav{
-    height:70px;
-    padding:0 5%;
-  }
-
-  .logo{
-    font-size:16px;
-  }
-
-  section{
-    padding:75px 5%;
-  }
-
-  h1{
-    font-size:49px;
-  }
-
-  .hero p{
-    font-size:15px;
-  }
-
-  .categories,
-  .products{
-    grid-template-columns:1fr;
-  }
-
-  .category{
-    height:180px;
-  }
-
-  .section-head h2,
-  .offer h2{
-    font-size:32px;
-  }
-
-  .offer{
-    margin:20px 5%;
-    padding:45px 20px;
-  }
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>بدر أبا الخيل | للعود والعطور</title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap');
+
+    :root {
+      --black: #080a08;
+      --dark: #101510;
+      --green: #14271d;
+      --green-light: #1d3a2a;
+      --gold: #c9a45b;
+      --gold-light: #e3c982;
+      --white: #ffffff;
+      --muted: #a9aaa3;
+      --border: rgba(201, 164, 91, 0.2);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: "Cairo", sans-serif;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font-family: inherit;
+    }
+
+    /* NAVIGATION */
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      right: 0;
+      left: 0;
+      height: 78px;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 6%;
+      background: rgba(8, 10, 8, 0.78);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+    }
+
+    .brand-name {
+      color: var(--gold-light);
+      font-size: 20px;
+      font-weight: 800;
+    }
+
+    .brand-subtitle {
+      color: #85877f;
+      font-size: 10px;
+      letter-spacing: 2px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      color: #d6d6d1;
+      font-size: 14px;
+    }
+
+    .nav-links a {
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold-light);
+    }
+
+    .cart-button {
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--gold-light);
+      border-radius: 30px;
+      padding: 10px 18px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .cart-button:hover {
+      background: var(--gold);
+      color: #111;
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 100vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      padding: 140px 8% 90px;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 20% 50%, rgba(29, 70, 48, 0.4), transparent 35%),
+        radial-gradient(circle at 75% 30%, rgba(201, 164, 91, 0.12), transparent 30%),
+        linear-gradient(135deg, #080a08, #101510);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 650px;
+      height: 650px;
+      border: 1px solid rgba(201, 164, 91, 0.1);
+      border-radius: 50%;
+      left: -280px;
+      top: 18%;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 5;
+      max-width: 650px;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      border: 1px solid rgba(201, 164, 91, 0.4);
+      color: var(--gold-light);
+      border-radius: 50px;
+      padding: 8px 18px;
+      font-size: 12px;
+      margin-bottom: 25px;
+    }
+
+    .hero h1 {
+      font-size: clamp(50px, 7vw, 92px);
+      line-height: 1.05;
+      font-weight: 800;
+      margin-bottom: 25px;
+    }
+
+    .hero h1 span {
+      color: var(--gold-light);
+    }
+
+    .hero-description {
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 2;
+      max-width: 570px;
+      margin-bottom: 35px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 0 28px;
+      border-radius: 4px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: 0.3s;
+      border: none;
+    }
+
+    .button-primary {
+      background: var(--gold);
+      color: #111;
+    }
+
+    .button-primary:hover {
+      background: var(--gold-light);
+      transform: translateY(-3px);
+    }
+
+    .button-secondary {
+      background: transparent;
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+    }
+
+    .button-secondary:hover {
+      border-color: var(--gold);
+      color: var(--gold-light);
+    }
+
+    /* HERO BOTTLE */
+
+    .hero-product {
+      position: absolute;
+      left: 8%;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 420px;
+      height: 560px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-glow {
+      position: absolute;
+      width: 380px;
+      height: 380px;
+      border-radius: 50%;
+      background: rgba(201, 164, 91, 0.08);
+      filter: blur(45px);
+    }
+
+    .hero-bottle {
+      position: relative;
+      z-index: 2;
+      width: 220px;
+      height: 360px;
+      border-radius: 22px 22px 35px 35px;
+      background: linear-gradient(
+        90deg,
+        #0d0e0c,
+        #28251c,
+        #4b4029,
+        #171711,
+        #080907
+      );
+      border: 1px solid rgba(201, 164, 91, 0.65);
+      box-shadow:
+        0 45px 100px rgba(0, 0, 0, 0.85),
+        inset 0 0 35px rgba(201, 164, 91, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: floating 5s ease-in-out infinite;
+    }
+
+    .hero-bottle::before {
+      content: "";
+      position: absolute;
+      top: -58px;
+      width: 88px;
+      height: 68px;
+      border-radius: 8px 8px 3px 3px;
+      background: linear-gradient(
+        90deg,
+        #171612,
+        #b99a55,
+        #ead080,
+        #5c4a27,
+        #15140f
+      );
+      border: 1px solid rgba(201, 164, 91, 0.55);
+    }
+
+    .bottle-label {
+      width: 155px;
+      height: 200px;
+      border: 1px solid rgba(201, 164, 91, 0.65);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: rgba(5, 7, 5, 0.18);
+    }
+
+    .bottle-label strong {
+      color: var(--gold-light);
+      font-size: 30px;
+    }
+
+    .bottle-label span {
+      color: #ddd;
+      font-size: 12px;
+      margin-top: 8px;
+    }
+
+    @keyframes floating {
+      0%, 100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-12px);
+      }
+    }
+
+    /* SECTIONS */
+
+    .section {
+      padding: 110px 7%;
+    }
+
+    .section-heading {
+      text-align: center;
+      max-width: 650px;
+      margin: 0 auto 55px;
+    }
+
+    .eyebrow {
+      color: var(--gold-light);
+      font-size: 12px;
+      letter-spacing: 3px;
+      margin-bottom: 12px;
+    }
+
+    .section-heading h2 {
+      font-size: 42px;
+      line-height: 1.3;
+      margin-bottom: 12px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      line-height: 1.9;
+    }
+
+    /* CATEGORIES */
+
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .category-card {
+      position: relative;
+      min-height: 230px;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 80% 20%, rgba(201, 164, 91, 0.1), transparent 30%),
+        linear-gradient(145deg, #17271e, #0b100d);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      transition: 0.4s;
+    }
+
+    .category-card::before {
+      content: "";
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 1px solid rgba(201, 164, 91, 0.1);
+      top: -60px;
+      left: -40px;
+    }
+
+    .category-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(201, 164, 91, 0.45);
+    }
+
+    .category-number {
+      position: absolute;
+      top: 20px;
+      left: 22px;
+      color: rgba(201, 164, 91, 0.35);
+      font-size: 12px;
+    }
+
+    .category-card h3 {
+      font-size: 24px;
+      margin-bottom: 5px;
+    }
+
+    .category-card p {
+      color: #8f918b;
+      font-size: 13px;
+    }
+
+    /* PRODUCTS */
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .product-card {
+      overflow: hidden;
+      background: #10130f;
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      transition: 0.35s;
+    }
+
+    .product-card:hover {
+      transform: translateY(-7px);
+      border-color: rgba(201, 164, 91, 0.45);
+    }
+
+    .product-image {
+      height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background:
+        radial-gradient(circle, rgba(201, 164, 91, 0.13), transparent 55%),
+        #0c0f0c;
+    }
+
+    .product-bottle {
+      position: relative;
+      width: 115px;
+      height: 195px;
+      border-radius: 13px 13px 20px 20px;
+      background: linear-gradient(
+        90deg,
+        #0c0d0c,
+        #29261d,
+        #51432a,
+        #13130e
+      );
+      border: 1px solid rgba(201, 164, 91, 0.6);
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
+    }
+
+    .product-bottle::before {
+      content: "";
+      position: absolute;
+      top: -30px;
+      left: 29px;
+      width: 55px;
+      height: 36px;
+      border-radius: 5px 5px 2px 2px;
+      background: linear-gradient(90deg, #554321, #d0ad60, #584521);
+    }
+
+    .product-info {
+      padding: 22px;
+    }
+
+    .product-info h3 {
+      font-size: 19px;
+      margin-bottom: 7px;
+    }
+
+    .product-info p {
+      color: #888b84;
+      font-size: 13px;
+      line-height: 1.8;
+      min-height: 47px;
+      margin-bottom: 15px;
+    }
+
+    .product-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .price {
+      color: var(--gold-light);
+      font-size: 20px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .add-button {
+      border: none;
+      background: var(--gold);
+      color: #111;
+      padding: 9px 13px;
+      border-radius: 3px;
+      cursor: pointer;
+      font-weight: 700;
+      transition: 0.3s;
+    }
+
+    .add-button:hover {
+      background: var(--gold-light);
+    }
+
+    /* OFFER */
+
+    .offer {
+      margin: 20px 7%;
+      padding: 75px 30px;
+      text-align: center;
+      background:
+        radial-gradient(circle at 50% 0%, rgba(201, 164, 91, 0.1), transparent 40%),
+        linear-gradient(110deg, #142c20, #0b0f0c);
+      border: 1px solid rgba(201, 164, 91, 0.25);
+    }
+
+    .offer h2 {
+      color: var(--gold-light);
+      font-size: 42px;
+      margin-bottom: 10px;
+    }
+
+    .offer p {
+      color: #aaa;
+      margin-bottom: 25px;
+    }
+
+    /* ABOUT */
+
+    .about {
+      max-width: 850px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .about-text {
+      color: #aaa;
+      line-height: 2.2;
+      font-size: 16px;
+    }
+
+    /* FOOTER */
+
+    .footer {
+      padding: 75px 7% 30px;
+      background: #060806;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 60px;
+      margin-bottom: 60px;
+    }
+
+    .footer h3 {
+      color: var(--gold-light);
+      margin-bottom: 15px;
+    }
+
+    .footer p,
+    .footer a {
+      color: #858780;
+      font-size: 14px;
+      line-height: 2;
+    }
+
+    .footer a {
+      display: block;
+      transition: 0.3s;
+    }
+
+    .footer a:hover {
+      color: var(--gold-light);
+    }
+
+    .copyright {
+      padding-top: 25px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      text-align: center;
+      color: #62645f;
+      font-size: 12px;
+    }
+
+    /* CART */
+
+    .cart-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.65);
+      z-index: 1900;
+      opacity: 0;
+      visibility: hidden;
+      transition: 0.3s;
+    }
+
+    .cart-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .cart-panel {
+      position: fixed;
+      top: 0;
+      right: -430px;
+      width: 410px;
+      max-width: 92%;
+      height: 100vh;
+      z-index: 2000;
+      background: #10130f;
+      border-left: 1px solid rgba(201, 164, 91, 0.25);
+      padding: 30px;
+      box-shadow: -25px 0 70px rgba(0, 0, 0, 0.5);
+      transition: 0.4s;
+      overflow-y: auto;
+    }
+
+    .cart-panel.active {
+      right: 0;
+    }
+
+    .cart-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 30px;
+    }
+
+    .cart-header h2 {
+      color: var(--gold-light);
+    }
+
+    .close-cart {
+      border: none;
+      background: transparent;
+      color: white;
+      font-size: 30px;
+      cursor: pointer;
+    }
+
+    .empty-cart {
+      color: #888;
+      text-align: center;
+      padding: 70px 0;
+    }
+
+    .cart-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    }
+
+    .cart-item-name {
+      font-weight: 700;
+    }
+
+    .cart-item-price {
+      color: var(--gold-light);
+      font-size: 13px;
+    }
+
+    .remove-item {
+      border: none;
+      background: transparent;
+      color: #9c735c;
+      cursor: pointer;
+      font-size: 12px;
+    }
+
+    .cart-total {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 30px;
+      font-size: 19px;
+    }
+
+    .cart-total strong {
+      color: var(--gold-light);
+    }
+
+    .checkout-button {
+      width: 100%;
+      margin-top: 25px;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 1000px) {
+      .hero-product {
+        opacity: 0.35;
+        left: -50px;
+      }
+
+      .categories,
+      .products {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 700px) {
+      .navbar {
+        height: 70px;
+        padding: 0 5%;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        padding: 125px 6% 80px;
+      }
+
+      .hero-product {
+        display: none;
+      }
+
+      .hero h1 {
+        font-size: 52px;
+      }
+
+      .hero-description {
+        font-size: 15px;
+      }
+
+      .section {
+        padding: 75px 5%;
+      }
+
+      .section-heading h2 {
+        font-size: 32px;
+      }
+
+      .categories,
+      .products {
+        grid-template-columns: 1fr;
+      }
+
+      .offer {
+        margin: 20px 5%;
+        padding: 50px 20px;
+      }
+
+      .offer h2 {
+        font-size: 30px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .brand-name {
+        font-size: 16px;
+      }
+
+      .cart-button {
+        padding: 8px 12px;
+      }
+
+      .hero h1 {
+        font-size: 45px;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+      }
+
+      .button {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<nav>
-  <a class="logo" href="#">
-    بدر أبا الخيل
-    <span>للعود والعطور</span>
-  </a>
+  <nav class="navbar">
 
-  <div class="navlinks">
-    <a href="#products">المنتجات</a>
-    <a href="#categories">الأقسام</a>
-    <a href="#offer">العروض</a>
-    <a href="#about">عن المتجر</a>
-  </div>
-
-  <button class="cart" onclick="openCart()">
-    السلة <span id="cartCount">0</span>
-  </button>
-</nav>
-
-<header class="hero">
-
-  <div class="hero-content">
-
-    <div class="badge">فخامة تُشم ولا تُوصف</div>
-
-    <h1>
-      عود يليق<br>
-      <span>بالمقام.</span>
-    </h1>
-
-    <p>
-      اكتشف تشكيلة مختارة من أجود أنواع العود والعطور
-      والمبخرات، بتفاصيل تجمع الأصالة والفخامة بأسلوب
-      عصري يليق بك.
-    </p>
-
-    <div class="buttons">
-      <a href="#products" class="btn primary">تسوق الآن</a>
-      <a href="#categories" class="btn secondary">استكشف التشكيلة</a>
-    </div>
-
-  </div>
-
-  <div class="hero-product">
-    <div class="glow"></div>
-    <div class="bottle">
-      <div class="bottle-label">
-        <strong>نجد</strong>
-        <small>عود فاخر</small>
-      </div>
-    </div>
-  </div>
-
-</header>
-
-<section id="categories">
-
-  <div class="section-head">
-    <div class="eyebrow">اكتشف مجموعتنا</div>
-    <h2>تشكيلة مختارة بعناية</h2>
-    <p>كل ما تحتاجه لتجعل حضورك مختلفاً.</p>
-  </div>
-
-  <div class="categories">
-
-    <a class="category" href="#products">
-      <h3>العود</h3>
-      <p>أجود الروائح الشرقية</p>
+    <a href="#" class="brand">
+      <span class="brand-name">بدر أبا الخيل</span>
+      <span class="brand-subtitle">للعود والعطور</span>
     </a>
 
-    <a class="category" href="#products">
-      <h3>العطور</h3>
-      <p>روائح تدوم طويلاً</p>
-    </a>
-
-    <a class="category" href="#products">
-      <h3>المبخرات</h3>
-      <p>فخامة المكان تبدأ من هنا</p>
-    </a>
-
-    <a class="category" href="#products">
-      <h3>المعطرات</h3>
-      <p>لمسة عطرية لكل يوم</p>
-    </a>
-
-  </div>
-
-</section>
-
-<section id="products">
-
-  <div class="section-head">
-    <div class="eyebrow">الأكثر طلباً</div>
-    <h2>منتجاتنا</h2>
-    <p>اختياراتنا المميزة لك.</p>
-  </div>
-
-  <div class="products">
-
-    <article class="product">
-      <div class="product-image">
-        <div class="mini-bottle"></div>
-      </div>
-      <div class="product-info">
-        <h3>عطر نجد</h3>
-        <p>عطر فاخر مستوحى من عبق نجد.</p>
-        <div class="price">
-          <strong>150 ر.س</strong>
-          <button class="add" onclick="addToCart('عطر نجد',150)">أضف للسلة</button>
-        </div>
-      </div>
-    </article>
-
-    <article class="product">
-      <div class="product-image">
-        <div class="mini-bottle"></div>
-      </div>
-      <div class="product-info">
-        <h3>عود تايقر</h3>
-        <p>نفحات عودية عميقة وفاخرة.</p>
-        <div class="price">
-          <strong>— ر.س</strong>
-          <button class="add" onclick="addToCart('عود تايقر',0)">أضف للسلة</button>
-        </div>
-      </div>
-    </article>
-
-    <article class="product">
-      <div class="product-image">
-        <div class="mini-bottle"></div>
-      </div>
-      <div class="product-info">
-        <h3>بلاك تي</h3>
-        <p>معطر أنيق بلمسة فاخرة.</p>
-        <div class="price">
-          <strong>120 ر.س</strong>
-          <button class="add" onclick="addToCart('بلاك تي',120)">أضف للسلة</button>
-        </div>
-      </div>
-    </article>
-
-    <article class="product">
-      <div class="product-image">
-        <div class="mini-bottle"></div>
-      </div>
-      <div class="product-info">
-        <h3>باشن</h3>
-        <p>رائحة مميزة للحظاتك الخاصة.</p>
-        <div class="price">
-          <strong>120 ر.س</strong>
-          <button class="add" onclick="addToCart('باشن',120)">أضف للسلة</button>
-        </div>
-      </div>
-    </article>
-
-  </div>
-
-</section>
-
-<div class="offer" id="offer">
-  <div class="eyebrow">عرض خاص</div>
-  <h2>خذ الأول بـ 150 والثاني بـ 96 ر.س</h2>
-  <p>اختر عطرك المفضل واستفد من العرض.</p>
-  <a href="#products" class="btn primary">استفد من العرض</a>
-</div>
-
-<section id="about">
-
-  <div class="section-head">
-    <div class="eyebrow">بدر أبا الخيل</div>
-    <h2>العطر جزء من حضورك</h2>
-    <p>
-      نقدم منتجات عطرية مختارة بعناية لمن يبحث عن الجودة
-      والفخامة والتفاصيل التي تبقى في الذاكرة.
-    </p>
-  </div>
-
-</section>
-
-<footer>
-
-  <div class="footer-grid">
-
-    <div>
-      <h3>بدر أبا الخيل</h3>
-      <p>
-        للعود والعطور والمبخرات والمعطرات.
-        فخامة شرقية بروح عصرية.
-      </p>
-    </div>
-
-    <div>
-      <h3>روابط</h3>
+    <div class="nav-links">
       <a href="#products">المنتجات</a>
       <a href="#categories">الأقسام</a>
-      <a href="#offer">العروض</a>
+      <a href="#offers">العروض</a>
+      <a href="#about">عن المتجر</a>
     </div>
 
-    <div>
-      <h3>تواصل</h3>
-      <a href="https://wa.me/" target="_blank">واتساب</a>
-      <a href="#">إنستغرام</a>
-      <a href="#">سناب شات</a>
+    <button class="cart-button" onclick="openCart()">
+      السلة
+      <span id="cartCount">0</span>
+    </button>
+
+  </nav>
+
+  <header class="hero">
+
+    <div class="hero-content">
+
+      <div class="hero-badge">
+        فخامة تُشم ولا تُوصف
+      </div>
+
+      <h1>
+        عود يليق
+        <br>
+        <span>بالمقام.</span>
+      </h1>
+
+      <p class="hero-description">
+        اكتشف تشكيلة مختارة من العود والعطور والمبخرات
+        والمعطرات، بتفاصيل تجمع الأصالة والفخامة
+        بأسلوب عصري يليق بك.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#products" class="button button-primary">
+          تسوق الآن
+        </a>
+
+        <a href="#categories" class="button button-secondary">
+          استكشف التشكيلة
+        </a>
+      </div>
+
     </div>
 
-  </div>
+    <div class="hero-product">
 
-  <div class="copy">
-    © 2026 بدر أبا الخيل للعود والعطور — جميع الحقوق محفوظة
-  </div>
+      <div class="hero-glow"></div>
 
-</footer>
+      <div class="hero-bottle">
 
-<div class="cart-panel" id="cartPanel">
-
-  <button class="close" onclick="closeCart()">×</button>
-
-  <h2>سلة المشتريات</h2>
-
-  <div class="cart-items" id="cartItems">
-    السلة فارغة.
-  </div>
-
-  <div class="cart-total">
-    <span>الإجمالي</span>
-    <strong><span id="cartTotal">0</span> ر.س</strong>
-  </div>
-
-  <button class="btn primary checkout" onclick="checkout()">
-    إتمام الطلب
-  </button>
-
-</div>
-
-<script>
-
-let cart = [];
-
-function addToCart(name,price){
-
-  cart.push({
-    name:name,
-    price:price
-  });
-
-  updateCart();
-
-  document.getElementById("cartPanel").classList.add("open");
-}
-
-function updateCart(){
-
-  document.getElementById("cartCount").textContent = cart.length;
-
-  const container = document.getElementById("cartItems");
-
-  if(cart.length === 0){
-    container.innerHTML = "السلة فارغة.";
-  }else{
-
-    container.innerHTML = cart.map((item,index)=>`
-
-      <div class="cart-item">
-
-        <span>${item.name}</span>
-
-        <strong>
-          ${item.price > 0 ? item.price + " ر.س" : "السعر عند الطلب"}
-        </strong>
-
-        <button
-          onclick="removeItem(${index})"
-          style="background:none;border:0;color:#c8a45b;cursor:pointer">
-          حذف
-        </button>
+        <div class="bottle-label">
+          <strong>نجد</strong>
+          <span>عود فاخر</span>
+        </div>
 
       </div>
 
-    `).join("");
-  }
+    </div>
 
-  const total = cart.reduce((sum,item)=>sum + item.price,0);
+  </header>
 
-  document.getElementById("cartTotal").textContent = total;
-}
+  <section class="section" id="categories">
 
-function removeItem(index){
+    <div class="section-heading">
 
-  cart.splice(index,1);
+      <div class="eyebrow">
+        اكتشف مجموعتنا
+      </div>
 
-  updateCart();
-}
+      <h2>
+        تشكيلة مختارة بعناية
+      </h2>
 
-function openCart(){
+      <p>
+        كل ما تحتاجه لتجعل حضورك مختلفاً.
+      </p>
 
-  document.getElementById("cartPanel").classList.add("open");
+    </div>
 
-}
+    <div class="categories">
 
-function closeCart(){
+      <a href="#products" class="category-card">
+        <span class="category-number">01</span>
+        <h3>العود</h3>
+        <p>أجود الروائح الشرقية</p>
+      </a>
 
-  document.getElementById("cartPanel").classList.remove("open");
+      <a href="#products" class="category-card">
+        <span class="category-number">02</span>
+        <h3>العطور</h3>
+        <p>روائح تدوم وتترك أثراً</p>
+      </a>
 
-}
+      <a href="#products" class="category-card">
+        <span class="category-number">03</span>
+        <h3>المبخرات</h3>
+        <p>فخامة المكان تبدأ من هنا</p>
+      </a>
 
-function checkout(){
+      <a href="#products" class="category-card">
+        <span class="category-number">04</span>
+        <h3>المعطرات</h3>
+        <p>لمسة عطرية لكل يوم</p>
+      </a>
 
-  if(cart.length === 0){
+    </div>
 
-    alert("السلة فارغة.");
+  </section>
 
-    return;
-  }
+  <section class="section" id="products">
 
-  const items = cart
-    .map(x => `${x.name} - ${x.price} ر.س`)
-    .join("\n");
+    <div class="section-heading">
 
-  const total = cart.reduce((sum,item)=>sum + item.price,0);
+      <div class="eyebrow">
+        الأكثر طلباً
+      </div>
 
-  const message =
-    "السلام عليكم، أريد طلب:\n\n" +
-    items +
-    "\n\nالإجمالي: " + total + " ر.س";
+      <h2>
+        منتجاتنا
+      </h2>
 
-  /*
-    ضع رقم الواتساب هنا بصيغة دولية.
-    مثال السعودية:
-    9665XXXXXXXX
-  */
+      <p>
+        اختيارات مميزة لعشاق العود والعطور.
+      </p>
 
-  const phone = "9665XXXXXXXX";
+    </div>
 
-  window.open(
-    "https://wa.me/" +
-    phone +
-    "?text=" +
-    encodeURIComponent(message),
-    "_blank"
-  );
-}
+    <div class="products">
 
-</script>
+      <article class="product-card">
+
+        <div class="product-image">
+          <div class="product-bottle"></div>
+        </div>
+
+        <div class="product-info">
+
+          <h3>عطر نجد</h3>
+
+          <p>
+            عطر فاخر مستوحى من عبق نجد.
+          </p>
+
+          <div class="product-bottom">
+
+            <span class="price">
+              150 ر.س
+            </span>
+
+            <button
+              class="add-button"
+              onclick="addToCart('عطر نجد', 150)">
+              أضف للسلة
+            </button>
+
+          </div>
+
+        </div>
+
+      </article>
+
+      <article class="product-card">
+
+        <div class="product-image">
+          <div class="product-bottle"></div>
+        </div>
+
+        <div class="product-info">
+
+          <h3>عود تايقر</h3>
+
+          <p>
+            نفحات عودية عميقة وفاخرة.
+          </p>
+
+          <div class="product-bottom">
+
+            <span class="price">
+              150 ر.س
+            </span>
+
+            <button
+              class="add-button"
+              onclick="addToCart('عود تايقر', 150)">
+              أضف للسلة
+            </button>
+
+          </div>
+
+        </div>
+
+      </article>
+
+      <article class="product-card">
+
+        <div class="product-image">
+          <div class="product-bottle"></div>
+        </div>
+
+        <div class="product-info">
+
+          <h3>بلاك تي</h3>
+
+          <p>
+            معطر أنيق بلمسة فاخرة.
+          </p>
+
+          <div class="product-bottom">
+
+            <span class="price">
+              120 ر.س
+            </span>
+
+            <button
+              class="add-button"
+              onclick="addToCart('بلاك تي', 120)">
+              أضف للسلة
+            </button>
+
+          </div>
+
+        </div>
+
+      </article>
+
+      <article class="product-card">
+
+        <div class="product-image">
+          <div class="product-bottle"></div>
+        </div>
+
+        <div class="product-info">
+
+          <h3>باشن</h3>
+
+          <p>
+            رائحة مميزة للحظاتك الخاصة.
+          </p>
+
+          <div class="product-bottom">
+
+            <span class="price">
+              120 ر.س
+            </span>
+
+            <button
+              class="add-button"
+              onclick="addToCart('باشن', 120)">
+              أضف للسلة
+            </button>
+
+          </div>
+
+        </div>
+
+      </article>
+
+    </div>
+
+  </section>
+
+  <section class="offer" id="offers">
+
+    <div class="eyebrow">
+      عرض خاص
+    </div>
+
+    <h2>
+      خذ الأول بـ 150 والثاني بـ 96 ر.س
+    </h2>
+
+    <p>
+      اختر عطرك المفضل واستفد من العرض.
+    </p>
+
+    <a href="#products" class="button button-primary">
+      استفد من العرض
+    </a>
+
+  </section>
+
+  <section class="section" id="about">
+
+    <div class="about">
+
+      <div class="section-heading">
+
+        <div class="eyebrow">
+          بدر أبا الخيل
+        </div>
+
+        <h2>
+          العطر جزء من حضورك
+        </h2>
+
+      </div>
+
+      <p class="about-text">
+        نقدم منتجات عطرية مختارة بعناية لمن يبحث عن
+        الجودة والفخامة والتفاصيل التي تبقى في الذاكرة.
+        عود وعطور ومبخرات ومعطرات بروح شرقية ولمسة عصرية.
+      </p>
+
+    </div>
+
+  </section>
+
+  <footer class="footer">
+
+    <div class="footer-grid">
+
+      <div>
+        <h3>بدر أبا الخيل</h3>
+
+        <p>
+          للعود والعطور والمبخرات والمعطرات.
+          فخامة شرقية بروح عصرية.
+        </p>
+      </div>
+
+      <div>
+        <h3>روابط</h3>
+
+        <a href="#products">المنتجات</a>
+        <a href="#categories">الأقسام</a>
+        <a href="#offers">العروض</a>
+        <a href="#about">عن المتجر</a>
+      </div>
+
+      <div>
+        <h3>تواصل</h3>
+
+        <a href="https://wa.me/" target="_blank">
+          واتساب
+        </a>
+
+        <a href="#">
+          إنستغرام
+        </a>
+
+        <a href="#">
+          سناب شات
+        </a>
+      </div>
+
+    </div>
+
+    <div class="copyright">
+      © 2026 بدر أبا الخيل للعود والعطور — جميع الحقوق محفوظة
+    </div>
+
+  </footer>
+
+  <div
+    class="cart-overlay"
+    id="cartOverlay"
+    onclick="closeCart()">
+  </div>
+
+  <aside class="cart-panel" id="cartPanel">
+
+    <div class="cart-header">
+
+      <h2>
+        سلة المشتريات
+      </h2>
+
+      <button
+        class="close-cart"
+        onclick="closeCart()">
+        ×
+      </button>
+
+    </div>
+
+    <div id="cartItems">
+      <div class="empty-cart">
+        السلة فارغة.
+      </div>
+    </div>
+
+    <div class="cart-total">
+
+      <span>
+        الإجمالي
+      </span>
+
+      <strong>
+        <span id="cartTotal">0</span>
+        ر.س
+      </strong>
+
+    </div>
+
+    <button
+      class="button button-primary checkout-button"
+      onclick="checkout()">
+      إتمام الطلب عبر واتساب
+    </button>
+
+  </aside>
+
+  <script>
+    let cart = [];
+
+    function openCart() {
+      document.getElementById("cartPanel").classList.add("active");
+      document.getElementById("cartOverlay").classList.add("active");
+    }
+
+    function closeCart() {
+      document.getElementById("cartPanel").classList.remove("active");
+      document.getElementById("cartOverlay").classList.remove("active");
+    }
+
+    function addToCart(name, price) {
+      cart.push({
+        name: name,
+        price: price
+      });
+
+      updateCart();
+      openCart();
+    }
+
+    function removeItem(index) {
+      cart.splice(index, 1);
+      updateCart();
+    }
+
+    function updateCart() {
+      const count = document.getElementById("cartCount");
+      const itemsContainer = document.getElementById("cartItems");
+      const totalElement = document.getElementById("cartTotal");
+
+      count.textContent = cart.length;
+
+      if (cart.length === 0) {
+        itemsContainer.innerHTML =
+          '<div class="empty-cart">السلة فارغة.</div>';
+
+        totalElement.textContent = "0";
+        return;
+      }
+
+      let total = 0;
+
+      itemsContainer.innerHTML = cart.map(function(item, index) {
+
+        total += item.price;
+
+        return `
+          <div class="cart-item">
+
+            <div>
+              <div class="cart-item-name">
+                ${item.name}
+              </div>
+
+              <div class="cart-item-price">
+                ${item.price} ر.س
+              </div>
+            </div>
+
+            <button
+              class="remove-item"
+              onclick="removeItem(${index})">
+              حذف
+            </button>
+
+          </div>
+        `;
+
+      }).join("");
+
+      totalElement.textContent = total;
+    }
+
+    function checkout() {
+
+      if (cart.length === 0) {
+        alert("السلة فارغة.");
+        return;
+      }
+
+      const phone = "966500000000";
+
+      let message =
+        "السلام عليكم، أريد طلب المنتجات التالية:%0A%0A";
+
+      cart.forEach(function(item) {
+        message +=
+          "- " +
+          item.name +
+          " — " +
+          item.price +
+          " ر.س%0A";
+      });
+
+      const total = cart.reduce(function(sum, item) {
+        return sum + item.price;
+      }, 0);
+
+      message +=
+        "%0Aالإجمالي: " +
+        total +
+        " ر.س";
+
+      window.open(
+        "https://wa.me/" + phone + "?text=" + message,
+        "_blank"
+      );
+    }
+  </script>
 
 </body>
 </html>

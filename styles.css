@@ -248,14 +248,21 @@ button {
   color: var(--muted);
 }
 
-.feature-grid {
+.feature-grid,
+.solution-grid,
+.pricing-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 24px;
+}
+
+.feature-grid {
   margin-top: 30px;
 }
 
-.feature-grid article {
+.feature-grid article,
+.solution-card,
+.pricing-card {
   padding: 28px 24px;
   border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: 22px;
@@ -274,15 +281,75 @@ button {
   font-weight: 700;
 }
 
-.feature-grid h2 {
+.feature-grid h2,
+.section-heading h2,
+.solution-card h3,
+.pricing-card h3 {
   margin: 18px 0 10px;
   font-size: 1.45rem;
 }
 
-.feature-grid p {
+.feature-grid p,
+.solution-card p,
+.pricing-card li,
+.section-heading {
   margin: 0;
   color: var(--muted);
   line-height: 1.7;
+}
+
+.solutions,
+.pricing {
+  margin-top: 52px;
+}
+
+.section-heading {
+  margin-bottom: 24px;
+}
+
+.solution-card,
+.pricing-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.pricing-card {
+  min-height: 100%;
+}
+
+.pricing-card h3 {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin: 0;
+  font-size: 2.1rem;
+}
+
+.pricing-card h3 span {
+  color: var(--muted);
+  font-size: 1rem;
+}
+
+.plan-name {
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--secondary);
+}
+
+.pricing-card ul {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--muted);
+  display: grid;
+  gap: 10px;
+  flex: 1;
+}
+
+.pricing-card.featured {
+  border-color: rgba(142, 240, 212, 0.44);
+  box-shadow: 0 12px 30px rgba(142, 240, 212, 0.12);
 }
 
 @media (max-width: 920px) {
@@ -300,7 +367,9 @@ button {
     height: 440px;
   }
 
-  .feature-grid {
+  .feature-grid,
+  .solution-grid,
+  .pricing-grid {
     grid-template-columns: 1fr;
   }
 }
@@ -333,3 +402,4 @@ button {
     padding: 12px 14px;
   }
 }
+

@@ -1,1311 +1,163 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>بدر أبا الخيل | للعود والعطور</title>
-
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap');
-
-    :root {
-      --black: #080a08;
-      --dark: #101510;
-      --green: #14271d;
-      --green-light: #1d3a2a;
-      --gold: #c9a45b;
-      --gold-light: #e3c982;
-      --white: #ffffff;
-      --muted: #a9aaa3;
-      --border: rgba(201, 164, 91, 0.2);
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      background: var(--black);
-      color: var(--white);
-      font-family: "Cairo", sans-serif;
-      overflow-x: hidden;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    button {
-      font-family: inherit;
-    }
-
-    /* NAVIGATION */
-
-    .navbar {
-      position: fixed;
-      top: 0;
-      right: 0;
-      left: 0;
-      height: 78px;
-      z-index: 1000;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 6%;
-      background: rgba(8, 10, 8, 0.78);
-      backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-    }
-
-    .brand {
-      display: flex;
-      flex-direction: column;
-      line-height: 1.2;
-    }
-
-    .brand-name {
-      color: var(--gold-light);
-      font-size: 20px;
-      font-weight: 800;
-    }
-
-    .brand-subtitle {
-      color: #85877f;
-      font-size: 10px;
-      letter-spacing: 2px;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 32px;
-      color: #d6d6d1;
-      font-size: 14px;
-    }
-
-    .nav-links a {
-      transition: 0.3s;
-    }
-
-    .nav-links a:hover {
-      color: var(--gold-light);
-    }
-
-    .cart-button {
-      border: 1px solid var(--border);
-      background: transparent;
-      color: var(--gold-light);
-      border-radius: 30px;
-      padding: 10px 18px;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-
-    .cart-button:hover {
-      background: var(--gold);
-      color: #111;
-    }
-
-    /* HERO */
-
-    .hero {
-      min-height: 100vh;
-      position: relative;
-      display: flex;
-      align-items: center;
-      padding: 140px 8% 90px;
-      overflow: hidden;
-      background:
-        radial-gradient(circle at 20% 50%, rgba(29, 70, 48, 0.4), transparent 35%),
-        radial-gradient(circle at 75% 30%, rgba(201, 164, 91, 0.12), transparent 30%),
-        linear-gradient(135deg, #080a08, #101510);
-    }
-
-    .hero::before {
-      content: "";
-      position: absolute;
-      width: 650px;
-      height: 650px;
-      border: 1px solid rgba(201, 164, 91, 0.1);
-      border-radius: 50%;
-      left: -280px;
-      top: 18%;
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 5;
-      max-width: 650px;
-    }
-
-    .hero-badge {
-      display: inline-block;
-      border: 1px solid rgba(201, 164, 91, 0.4);
-      color: var(--gold-light);
-      border-radius: 50px;
-      padding: 8px 18px;
-      font-size: 12px;
-      margin-bottom: 25px;
-    }
-
-    .hero h1 {
-      font-size: clamp(50px, 7vw, 92px);
-      line-height: 1.05;
-      font-weight: 800;
-      margin-bottom: 25px;
-    }
-
-    .hero h1 span {
-      color: var(--gold-light);
-    }
-
-    .hero-description {
-      color: var(--muted);
-      font-size: 17px;
-      line-height: 2;
-      max-width: 570px;
-      margin-bottom: 35px;
-    }
-
-    .hero-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-    }
-
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 52px;
-      padding: 0 28px;
-      border-radius: 4px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: 0.3s;
-      border: none;
-    }
-
-    .button-primary {
-      background: var(--gold);
-      color: #111;
-    }
-
-    .button-primary:hover {
-      background: var(--gold-light);
-      transform: translateY(-3px);
-    }
-
-    .button-secondary {
-      background: transparent;
-      color: white;
-      border: 1px solid rgba(255, 255, 255, 0.22);
-    }
-
-    .button-secondary:hover {
-      border-color: var(--gold);
-      color: var(--gold-light);
-    }
-
-    /* HERO BOTTLE */
-
-    .hero-product {
-      position: absolute;
-      left: 8%;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 420px;
-      height: 560px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .hero-glow {
-      position: absolute;
-      width: 380px;
-      height: 380px;
-      border-radius: 50%;
-      background: rgba(201, 164, 91, 0.08);
-      filter: blur(45px);
-    }
-
-    .hero-bottle {
-      position: relative;
-      z-index: 2;
-      width: 220px;
-      height: 360px;
-      border-radius: 22px 22px 35px 35px;
-      background: linear-gradient(
-        90deg,
-        #0d0e0c,
-        #28251c,
-        #4b4029,
-        #171711,
-        #080907
-      );
-      border: 1px solid rgba(201, 164, 91, 0.65);
-      box-shadow:
-        0 45px 100px rgba(0, 0, 0, 0.85),
-        inset 0 0 35px rgba(201, 164, 91, 0.1);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      animation: floating 5s ease-in-out infinite;
-    }
-
-    .hero-bottle::before {
-      content: "";
-      position: absolute;
-      top: -58px;
-      width: 88px;
-      height: 68px;
-      border-radius: 8px 8px 3px 3px;
-      background: linear-gradient(
-        90deg,
-        #171612,
-        #b99a55,
-        #ead080,
-        #5c4a27,
-        #15140f
-      );
-      border: 1px solid rgba(201, 164, 91, 0.55);
-    }
-
-    .bottle-label {
-      width: 155px;
-      height: 200px;
-      border: 1px solid rgba(201, 164, 91, 0.65);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      background: rgba(5, 7, 5, 0.18);
-    }
-
-    .bottle-label strong {
-      color: var(--gold-light);
-      font-size: 30px;
-    }
-
-    .bottle-label span {
-      color: #ddd;
-      font-size: 12px;
-      margin-top: 8px;
-    }
-
-    @keyframes floating {
-      0%, 100% {
-        transform: translateY(0);
-      }
-
-      50% {
-        transform: translateY(-12px);
-      }
-    }
-
-    /* SECTIONS */
-
-    .section {
-      padding: 110px 7%;
-    }
-
-    .section-heading {
-      text-align: center;
-      max-width: 650px;
-      margin: 0 auto 55px;
-    }
-
-    .eyebrow {
-      color: var(--gold-light);
-      font-size: 12px;
-      letter-spacing: 3px;
-      margin-bottom: 12px;
-    }
-
-    .section-heading h2 {
-      font-size: 42px;
-      line-height: 1.3;
-      margin-bottom: 12px;
-    }
-
-    .section-heading p {
-      color: var(--muted);
-      line-height: 1.9;
-    }
-
-    /* CATEGORIES */
-
-    .categories {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-    }
-
-    .category-card {
-      position: relative;
-      min-height: 230px;
-      padding: 30px;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      overflow: hidden;
-      background:
-        radial-gradient(circle at 80% 20%, rgba(201, 164, 91, 0.1), transparent 30%),
-        linear-gradient(145deg, #17271e, #0b100d);
-      border: 1px solid rgba(255, 255, 255, 0.07);
-      transition: 0.4s;
-    }
-
-    .category-card::before {
-      content: "";
-      position: absolute;
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      border: 1px solid rgba(201, 164, 91, 0.1);
-      top: -60px;
-      left: -40px;
-    }
-
-    .category-card:hover {
-      transform: translateY(-8px);
-      border-color: rgba(201, 164, 91, 0.45);
-    }
-
-    .category-number {
-      position: absolute;
-      top: 20px;
-      left: 22px;
-      color: rgba(201, 164, 91, 0.35);
-      font-size: 12px;
-    }
-
-    .category-card h3 {
-      font-size: 24px;
-      margin-bottom: 5px;
-    }
-
-    .category-card p {
-      color: #8f918b;
-      font-size: 13px;
-    }
-
-    /* PRODUCTS */
-
-    .products {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-    }
-
-    .product-card {
-      overflow: hidden;
-      background: #10130f;
-      border: 1px solid rgba(255, 255, 255, 0.07);
-      transition: 0.35s;
-    }
-
-    .product-card:hover {
-      transform: translateY(-7px);
-      border-color: rgba(201, 164, 91, 0.45);
-    }
-
-    .product-image {
-      height: 300px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background:
-        radial-gradient(circle, rgba(201, 164, 91, 0.13), transparent 55%),
-        #0c0f0c;
-    }
-
-    .product-bottle {
-      position: relative;
-      width: 115px;
-      height: 195px;
-      border-radius: 13px 13px 20px 20px;
-      background: linear-gradient(
-        90deg,
-        #0c0d0c,
-        #29261d,
-        #51432a,
-        #13130e
-      );
-      border: 1px solid rgba(201, 164, 91, 0.6);
-      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
-    }
-
-    .product-bottle::before {
-      content: "";
-      position: absolute;
-      top: -30px;
-      left: 29px;
-      width: 55px;
-      height: 36px;
-      border-radius: 5px 5px 2px 2px;
-      background: linear-gradient(90deg, #554321, #d0ad60, #584521);
-    }
-
-    .product-info {
-      padding: 22px;
-    }
-
-    .product-info h3 {
-      font-size: 19px;
-      margin-bottom: 7px;
-    }
-
-    .product-info p {
-      color: #888b84;
-      font-size: 13px;
-      line-height: 1.8;
-      min-height: 47px;
-      margin-bottom: 15px;
-    }
-
-    .product-bottom {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-    }
-
-    .price {
-      color: var(--gold-light);
-      font-size: 20px;
-      font-weight: 800;
-      white-space: nowrap;
-    }
-
-    .add-button {
-      border: none;
-      background: var(--gold);
-      color: #111;
-      padding: 9px 13px;
-      border-radius: 3px;
-      cursor: pointer;
-      font-weight: 700;
-      transition: 0.3s;
-    }
-
-    .add-button:hover {
-      background: var(--gold-light);
-    }
-
-    /* OFFER */
-
-    .offer {
-      margin: 20px 7%;
-      padding: 75px 30px;
-      text-align: center;
-      background:
-        radial-gradient(circle at 50% 0%, rgba(201, 164, 91, 0.1), transparent 40%),
-        linear-gradient(110deg, #142c20, #0b0f0c);
-      border: 1px solid rgba(201, 164, 91, 0.25);
-    }
-
-    .offer h2 {
-      color: var(--gold-light);
-      font-size: 42px;
-      margin-bottom: 10px;
-    }
-
-    .offer p {
-      color: #aaa;
-      margin-bottom: 25px;
-    }
-
-    /* ABOUT */
-
-    .about {
-      max-width: 850px;
-      margin: auto;
-      text-align: center;
-    }
-
-    .about-text {
-      color: #aaa;
-      line-height: 2.2;
-      font-size: 16px;
-    }
-
-    /* FOOTER */
-
-    .footer {
-      padding: 75px 7% 30px;
-      background: #060806;
-      border-top: 1px solid rgba(255, 255, 255, 0.06);
-    }
-
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr;
-      gap: 60px;
-      margin-bottom: 60px;
-    }
-
-    .footer h3 {
-      color: var(--gold-light);
-      margin-bottom: 15px;
-    }
-
-    .footer p,
-    .footer a {
-      color: #858780;
-      font-size: 14px;
-      line-height: 2;
-    }
-
-    .footer a {
-      display: block;
-      transition: 0.3s;
-    }
-
-    .footer a:hover {
-      color: var(--gold-light);
-    }
-
-    .copyright {
-      padding-top: 25px;
-      border-top: 1px solid rgba(255, 255, 255, 0.06);
-      text-align: center;
-      color: #62645f;
-      font-size: 12px;
-    }
-
-    /* CART */
-
-    .cart-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.65);
-      z-index: 1900;
-      opacity: 0;
-      visibility: hidden;
-      transition: 0.3s;
-    }
-
-    .cart-overlay.active {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    .cart-panel {
-      position: fixed;
-      top: 0;
-      right: -430px;
-      width: 410px;
-      max-width: 92%;
-      height: 100vh;
-      z-index: 2000;
-      background: #10130f;
-      border-left: 1px solid rgba(201, 164, 91, 0.25);
-      padding: 30px;
-      box-shadow: -25px 0 70px rgba(0, 0, 0, 0.5);
-      transition: 0.4s;
-      overflow-y: auto;
-    }
-
-    .cart-panel.active {
-      right: 0;
-    }
-
-    .cart-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 30px;
-    }
-
-    .cart-header h2 {
-      color: var(--gold-light);
-    }
-
-    .close-cart {
-      border: none;
-      background: transparent;
-      color: white;
-      font-size: 30px;
-      cursor: pointer;
-    }
-
-    .empty-cart {
-      color: #888;
-      text-align: center;
-      padding: 70px 0;
-    }
-
-    .cart-item {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-      padding: 16px 0;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
-    }
-
-    .cart-item-name {
-      font-weight: 700;
-    }
-
-    .cart-item-price {
-      color: var(--gold-light);
-      font-size: 13px;
-    }
-
-    .remove-item {
-      border: none;
-      background: transparent;
-      color: #9c735c;
-      cursor: pointer;
-      font-size: 12px;
-    }
-
-    .cart-total {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-top: 30px;
-      font-size: 19px;
-    }
-
-    .cart-total strong {
-      color: var(--gold-light);
-    }
-
-    .checkout-button {
-      width: 100%;
-      margin-top: 25px;
-    }
-
-    /* RESPONSIVE */
-
-    @media (max-width: 1000px) {
-      .hero-product {
-        opacity: 0.35;
-        left: -50px;
-      }
-
-      .categories,
-      .products {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 700px) {
-      .navbar {
-        height: 70px;
-        padding: 0 5%;
-      }
-
-      .nav-links {
-        display: none;
-      }
-
-      .hero {
-        padding: 125px 6% 80px;
-      }
-
-      .hero-product {
-        display: none;
-      }
-
-      .hero h1 {
-        font-size: 52px;
-      }
-
-      .hero-description {
-        font-size: 15px;
-      }
-
-      .section {
-        padding: 75px 5%;
-      }
-
-      .section-heading h2 {
-        font-size: 32px;
-      }
-
-      .categories,
-      .products {
-        grid-template-columns: 1fr;
-      }
-
-      .offer {
-        margin: 20px 5%;
-        padding: 50px 20px;
-      }
-
-      .offer h2 {
-        font-size: 30px;
-      }
-
-      .footer-grid {
-        grid-template-columns: 1fr;
-        gap: 35px;
-      }
-    }
-
-    @media (max-width: 420px) {
-      .brand-name {
-        font-size: 16px;
-      }
-
-      .cart-button {
-        padding: 8px 12px;
-      }
-
-      .hero h1 {
-        font-size: 45px;
-      }
-
-      .hero-buttons {
-        flex-direction: column;
-      }
-
-      .button {
-        width: 100%;
-      }
-    }
-  </style>
-</head>
-
-<body>
-
-  <nav class="navbar">
-
-    <a href="#" class="brand">
-      <span class="brand-name">بدر أبا الخيل</span>
-      <span class="brand-subtitle">للعود والعطور</span>
-    </a>
-
-    <div class="nav-links">
-      <a href="#products">المنتجات</a>
-      <a href="#categories">الأقسام</a>
-      <a href="#offers">العروض</a>
-      <a href="#about">عن المتجر</a>
-    </div>
-
-    <button class="cart-button" onclick="openCart()">
-      السلة
-      <span id="cartCount">0</span>
-    </button>
-
-  </nav>
-
-  <header class="hero">
-
-    <div class="hero-content">
-
-      <div class="hero-badge">
-        فخامة تُشم ولا تُوصف
-      </div>
-
-      <h1>
-        عود يليق
-        <br>
-        <span>بالمقام.</span>
-      </h1>
-
-      <p class="hero-description">
-        اكتشف تشكيلة مختارة من العود والعطور والمبخرات
-        والمعطرات، بتفاصيل تجمع الأصالة والفخامة
-        بأسلوب عصري يليق بك.
-      </p>
-
-      <div class="hero-buttons">
-        <a href="#products" class="button button-primary">
-          تسوق الآن
-        </a>
-
-        <a href="#categories" class="button button-secondary">
-          استكشف التشكيلة
-        </a>
-      </div>
-
-    </div>
-
-    <div class="hero-product">
-
-      <div class="hero-glow"></div>
-
-      <div class="hero-bottle">
-
-        <div class="bottle-label">
-          <strong>نجد</strong>
-          <span>عود فاخر</span>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A futuristic 3D landing page showcasing immersive design and motion."
+    />
+    <title>NovaForge</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <div class="brand">
+          <span class="brand-mark">N</span>
+          <span>NovaForge</span>
         </div>
+        <nav class="nav" aria-label="Main navigation">
+          <a href="#about">About</a>
+          <a href="#solutions">Solutions</a>
+          <a href="#pricing">Pricing</a>
+        </nav>
+        <button class="nav-cta" type="button">Book a demo</button>
+      </header>
 
-      </div>
-
-    </div>
-
-  </header>
-
-  <section class="section" id="categories">
-
-    <div class="section-heading">
-
-      <div class="eyebrow">
-        اكتشف مجموعتنا
-      </div>
-
-      <h2>
-        تشكيلة مختارة بعناية
-      </h2>
-
-      <p>
-        كل ما تحتاجه لتجعل حضورك مختلفاً.
-      </p>
-
-    </div>
-
-    <div class="categories">
-
-      <a href="#products" class="category-card">
-        <span class="category-number">01</span>
-        <h3>العود</h3>
-        <p>أجود الروائح الشرقية</p>
-      </a>
-
-      <a href="#products" class="category-card">
-        <span class="category-number">02</span>
-        <h3>العطور</h3>
-        <p>روائح تدوم وتترك أثراً</p>
-      </a>
-
-      <a href="#products" class="category-card">
-        <span class="category-number">03</span>
-        <h3>المبخرات</h3>
-        <p>فخامة المكان تبدأ من هنا</p>
-      </a>
-
-      <a href="#products" class="category-card">
-        <span class="category-number">04</span>
-        <h3>المعطرات</h3>
-        <p>لمسة عطرية لكل يوم</p>
-      </a>
-
-    </div>
-
-  </section>
-
-  <section class="section" id="products">
-
-    <div class="section-heading">
-
-      <div class="eyebrow">
-        الأكثر طلباً
-      </div>
-
-      <h2>
-        منتجاتنا
-      </h2>
-
-      <p>
-        اختيارات مميزة لعشاق العود والعطور.
-      </p>
-
-    </div>
-
-    <div class="products">
-
-      <article class="product-card">
-
-        <div class="product-image">
-          <div class="product-bottle"></div>
-        </div>
-
-        <div class="product-info">
-
-          <h3>عطر نجد</h3>
-
-          <p>
-            عطر فاخر مستوحى من عبق نجد.
+      <main class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Next-generation product design</p>
+          <h1>Build experiences that feel alive.</h1>
+          <p class="lede">
+            We craft lightning-fast digital products with immersive visuals,
+            precision UX, and strategy that turns attention into action.
           </p>
-
-          <div class="product-bottom">
-
-            <span class="price">
-              150 ر.س
-            </span>
-
-            <button
-              class="add-button"
-              onclick="addToCart('عطر نجد', 150)">
-              أضف للسلة
-            </button>
-
+          <div class="cta-row">
+            <button class="primary" type="button">Get started</button>
+            <button class="secondary" type="button">View case study</button>
           </div>
-
-        </div>
-
-      </article>
-
-      <article class="product-card">
-
-        <div class="product-image">
-          <div class="product-bottle"></div>
-        </div>
-
-        <div class="product-info">
-
-          <h3>عود تايقر</h3>
-
-          <p>
-            نفحات عودية عميقة وفاخرة.
-          </p>
-
-          <div class="product-bottom">
-
-            <span class="price">
-              150 ر.س
-            </span>
-
-            <button
-              class="add-button"
-              onclick="addToCart('عود تايقر', 150)">
-              أضف للسلة
-            </button>
-
-          </div>
-
-        </div>
-
-      </article>
-
-      <article class="product-card">
-
-        <div class="product-image">
-          <div class="product-bottle"></div>
-        </div>
-
-        <div class="product-info">
-
-          <h3>بلاك تي</h3>
-
-          <p>
-            معطر أنيق بلمسة فاخرة.
-          </p>
-
-          <div class="product-bottom">
-
-            <span class="price">
-              120 ر.س
-            </span>
-
-            <button
-              class="add-button"
-              onclick="addToCart('بلاك تي', 120)">
-              أضف للسلة
-            </button>
-
-          </div>
-
-        </div>
-
-      </article>
-
-      <article class="product-card">
-
-        <div class="product-image">
-          <div class="product-bottle"></div>
-        </div>
-
-        <div class="product-info">
-
-          <h3>باشن</h3>
-
-          <p>
-            رائحة مميزة للحظاتك الخاصة.
-          </p>
-
-          <div class="product-bottom">
-
-            <span class="price">
-              120 ر.س
-            </span>
-
-            <button
-              class="add-button"
-              onclick="addToCart('باشن', 120)">
-              أضف للسلة
-            </button>
-
-          </div>
-
-        </div>
-
-      </article>
-
-    </div>
-
-  </section>
-
-  <section class="offer" id="offers">
-
-    <div class="eyebrow">
-      عرض خاص
-    </div>
-
-    <h2>
-      خذ الأول بـ 150 والثاني بـ 96 ر.س
-    </h2>
-
-    <p>
-      اختر عطرك المفضل واستفد من العرض.
-    </p>
-
-    <a href="#products" class="button button-primary">
-      استفد من العرض
-    </a>
-
-  </section>
-
-  <section class="section" id="about">
-
-    <div class="about">
-
-      <div class="section-heading">
-
-        <div class="eyebrow">
-          بدر أبا الخيل
-        </div>
-
-        <h2>
-          العطر جزء من حضورك
-        </h2>
-
-      </div>
-
-      <p class="about-text">
-        نقدم منتجات عطرية مختارة بعناية لمن يبحث عن
-        الجودة والفخامة والتفاصيل التي تبقى في الذاكرة.
-        عود وعطور ومبخرات ومعطرات بروح شرقية ولمسة عصرية.
-      </p>
-
-    </div>
-
-  </section>
-
-  <footer class="footer">
-
-    <div class="footer-grid">
-
-      <div>
-        <h3>بدر أبا الخيل</h3>
-
-        <p>
-          للعود والعطور والمبخرات والمعطرات.
-          فخامة شرقية بروح عصرية.
-        </p>
-      </div>
-
-      <div>
-        <h3>روابط</h3>
-
-        <a href="#products">المنتجات</a>
-        <a href="#categories">الأقسام</a>
-        <a href="#offers">العروض</a>
-        <a href="#about">عن المتجر</a>
-      </div>
-
-      <div>
-        <h3>تواصل</h3>
-
-        <a href="https://wa.me/" target="_blank">
-          واتساب
-        </a>
-
-        <a href="#">
-          إنستغرام
-        </a>
-
-        <a href="#">
-          سناب شات
-        </a>
-      </div>
-
-    </div>
-
-    <div class="copyright">
-      © 2026 بدر أبا الخيل للعود والعطور — جميع الحقوق محفوظة
-    </div>
-
-  </footer>
-
-  <div
-    class="cart-overlay"
-    id="cartOverlay"
-    onclick="closeCart()">
-  </div>
-
-  <aside class="cart-panel" id="cartPanel">
-
-    <div class="cart-header">
-
-      <h2>
-        سلة المشتريات
-      </h2>
-
-      <button
-        class="close-cart"
-        onclick="closeCart()">
-        ×
-      </button>
-
-    </div>
-
-    <div id="cartItems">
-      <div class="empty-cart">
-        السلة فارغة.
-      </div>
-    </div>
-
-    <div class="cart-total">
-
-      <span>
-        الإجمالي
-      </span>
-
-      <strong>
-        <span id="cartTotal">0</span>
-        ر.س
-      </strong>
-
-    </div>
-
-    <button
-      class="button button-primary checkout-button"
-      onclick="checkout()">
-      إتمام الطلب عبر واتساب
-    </button>
-
-  </aside>
-
-  <script>
-    let cart = [];
-
-    function openCart() {
-      document.getElementById("cartPanel").classList.add("active");
-      document.getElementById("cartOverlay").classList.add("active");
-    }
-
-    function closeCart() {
-      document.getElementById("cartPanel").classList.remove("active");
-      document.getElementById("cartOverlay").classList.remove("active");
-    }
-
-    function addToCart(name, price) {
-      cart.push({
-        name: name,
-        price: price
-      });
-
-      updateCart();
-      openCart();
-    }
-
-    function removeItem(index) {
-      cart.splice(index, 1);
-      updateCart();
-    }
-
-    function updateCart() {
-      const count = document.getElementById("cartCount");
-      const itemsContainer = document.getElementById("cartItems");
-      const totalElement = document.getElementById("cartTotal");
-
-      count.textContent = cart.length;
-
-      if (cart.length === 0) {
-        itemsContainer.innerHTML =
-          '<div class="empty-cart">السلة فارغة.</div>';
-
-        totalElement.textContent = "0";
-        return;
-      }
-
-      let total = 0;
-
-      itemsContainer.innerHTML = cart.map(function(item, index) {
-
-        total += item.price;
-
-        return `
-          <div class="cart-item">
-
+          <div class="stats" aria-label="Key results">
             <div>
-              <div class="cart-item-name">
-                ${item.name}
-              </div>
-
-              <div class="cart-item-price">
-                ${item.price} ر.س
-              </div>
+              <strong>120+</strong>
+              <span>Launches</span>
             </div>
-
-            <button
-              class="remove-item"
-              onclick="removeItem(${index})">
-              حذف
-            </button>
-
+            <div>
+              <strong>4.9/5</strong>
+              <span>Client rating</span>
+            </div>
+            <div>
+              <strong>3x</strong>
+              <span>Faster delivery</span>
+            </div>
           </div>
-        `;
+        </div>
 
-      }).join("");
+        <div class="visual-panel" aria-label="3D product visualization">
+          <canvas id="scene"></canvas>
+          <div class="floating-card card-a">
+            <span class="card-label">Realtime</span>
+            <strong>12ms</strong>
+            <small>Global latency</small>
+          </div>
+          <div class="floating-card card-b">
+            <span class="card-label">Engagement</span>
+            <strong>87%</strong>
+            <small>Retention lift</small>
+          </div>
+        </div>
+      </main>
 
-      totalElement.textContent = total;
-    }
+      <section class="feature-grid" id="about">
+        <article>
+          <span class="feature-icon">01</span>
+          <h2>Immersive strategy</h2>
+          <p>We blend product thinking, motion direction, and development to create memorable digital experiences.</p>
+        </article>
+        <article>
+          <span class="feature-icon">02</span>
+          <h2>Rapid execution</h2>
+          <p>From concept to launch, every sprint is structured to increase clarity, performance, and momentum.</p>
+        </article>
+        <article>
+          <span class="feature-icon">03</span>
+          <h2>Measured growth</h2>
+          <p>We optimize for engagement and conversion, not just aesthetics, ensuring your product performs in the real world.</p>
+        </article>
+      </section>
 
-    function checkout() {
+      <section class="solutions" id="solutions">
+        <div class="section-heading">
+          <p class="eyebrow">Solutions</p>
+          <h2>Built for ambitious teams.</h2>
+        </div>
 
-      if (cart.length === 0) {
-        alert("السلة فارغة.");
-        return;
-      }
+        <div class="solution-grid">
+          <article class="solution-card">
+            <h3>Brand systems</h3>
+            <p>Establish a clear visual language and interaction framework that scales across all touchpoints.</p>
+          </article>
+          <article class="solution-card">
+            <h3>Product design</h3>
+            <p>Design interfaces that are more intuitive, more persuasive, and easier to turn into real value.</p>
+          </article>
+          <article class="solution-card">
+            <h3>Growth sprints</h3>
+            <p>Pair product experimentation with measurable goals to compound momentum across the funnel.</p>
+          </article>
+        </div>
+      </section>
 
-      const phone = "966500000000";
+      <section class="pricing" id="pricing">
+        <div class="section-heading">
+          <p class="eyebrow">Pricing</p>
+          <h2>Flexible engagement models.</h2>
+        </div>
 
-      let message =
-        "السلام عليكم، أريد طلب المنتجات التالية:%0A%0A";
+        <div class="pricing-grid">
+          <article class="pricing-card">
+            <span class="plan-name">Starter</span>
+            <h3>$1.5k<span>/mo</span></h3>
+            <ul>
+              <li>Design direction</li>
+              <li>Landing page design</li>
+              <li>Monthly strategy review</li>
+            </ul>
+            <button class="secondary" type="button">Choose plan</button>
+          </article>
 
-      cart.forEach(function(item) {
-        message +=
-          "- " +
-          item.name +
-          " — " +
-          item.price +
-          " ر.س%0A";
-      });
+          <article class="pricing-card featured">
+            <span class="plan-name">Growth</span>
+            <h3>$4.8k<span>/mo</span></h3>
+            <ul>
+              <li>Full product design</li>
+              <li>Rapid prototyping</li>
+              <li>Cross-functional sprint planning</li>
+            </ul>
+            <button class="primary" type="button">Most popular</button>
+          </article>
 
-      const total = cart.reduce(function(sum, item) {
-        return sum + item.price;
-      }, 0);
+          <article class="pricing-card">
+            <span class="plan-name">Scale</span>
+            <h3>$9k<span>/mo</span></h3>
+            <ul>
+              <li>Dedicated team support</li>
+              <li>Experimentation roadmap</li>
+              <li>Executive reporting</li>
+            </ul>
+            <button class="secondary" type="button">Talk to sales</button>
+          </article>
+        </div>
+      </section>
+    </div>
 
-      message +=
-        "%0Aالإجمالي: " +
-        total +
-        " ر.س";
-
-      window.open(
-        "https://wa.me/" + phone + "?text=" + message,
-        "_blank"
-      );
-    }
-  </script>
-
-</body>
+    <script type="module" src="./app.js"></script>
+  </body>
 </html>
+
